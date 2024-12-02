@@ -17,13 +17,9 @@ function gerarRelatorioPagamento() {
 
     listaFuncionarios.map((func) => {
 
-        let totalHoras = 0
-        func.horasTrabalhadas.map((hora) => {
-            totalHoras += hora
-        })
-
-        let salarioBruto = calcularSalarioMensal(func)
-        let inss = calcularInss(func)
+        let totalHoras = func.calcularTotalHoras()
+        let salarioBruto = func.calcularSalarioMensal()
+        let inss = func.calcularInss()
 
         console.log(`Nome: ${func.nome}`)
         console.log(`Cargo: ${func.cargo}`)

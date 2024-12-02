@@ -27,6 +27,11 @@ class Funcionario {
         return totalHoras * this.taxaHoraria;
     }
 
+    calcularTotalHoras() {
+        return this.horasTrabalhadas.reduce((soma, horas) => soma + horas, 0)
+    }
+
+
     calcularInss() {
         let salarioBruto = this.calcularSalarioMensal()
         let inss = 0
@@ -47,6 +52,5 @@ class Funcionario {
 
         return inss
     }
-
 }
 export default Funcionario
