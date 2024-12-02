@@ -12,6 +12,13 @@ function adicionarFuncionario(nome: string, cargo: string, taxaHoraria: number):
     console.log(`Funcionário criado com sucesso. ID: ${novoFuncionario.id}`)
 }
 
+function exibirLista() {
+    console.log("-------- LISTA DE FUNCIONÁRIOS ---------- \n");
+    listaFuncionarios.forEach(func => {
+        console.log(`ID: ${func.id}, Nome: ${func.nome}, Horas Trabalhadas: ${func.horasTrabalhadas}`);
+    });
+}
+
 function gerarRelatorioPagamento() {
     console.log("-------- RELATÓRIO DE PAGAMENTOS ---------- \n");
 
@@ -32,12 +39,13 @@ function gerarRelatorioPagamento() {
 }
 
 function gerenciarFolhaPagamento() {
-    function exibirMenu() {
-        console.log("\n--- Sistema de Folha de Pagamento ---");
+    function exibirMenu(): void {
+        console.log("\n------- Sistema de Folha de Pagamento -------");
         console.log("1 - Adicionar Funcionário");
         console.log("2 - Registrar Horas Trabalhadas");
-        console.log("3 - Exibir Relatório de Pagamento");
-        console.log("4 - Sair \n");
+        console.log("3 - Exibir lista de funcionários");
+        console.log("4 - Exibir Relatório de Pagamento");
+        console.log("5 - Sair\n");
     }
 
     let opcao;
@@ -81,7 +89,7 @@ function gerenciarFolhaPagamento() {
                 break;
 
             case "5":
-                console.log("Saindo do sistema...");
+                console.log("Saindo do sistema...\n");
                 break;
 
             default:

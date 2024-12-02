@@ -17,6 +17,15 @@ class Funcionario {
         this.horasTrabalhadas = []
     }
 
+    exibirInformacoes(): void {
+        console.log(`
+            ----------------------
+            ID: ${this.id}
+            Nome: ${this.nome}
+            Cargo: ${this.cargo}
+            Horas Trabalhadas: ${this.calcularTotalHoras()}    
+        `)
+    }
 
     registrarHoras(numHoras: number): void {
         this.horasTrabalhadas.push(numHoras)
