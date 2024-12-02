@@ -16,7 +16,7 @@ function adicionarFuncionario(id, nome, cargo, taxaHoraria) {
 
     listaFuncionarios.push(funcionario)
 }
-
+ 
 
 
 function calcularInss(funcionario) {
