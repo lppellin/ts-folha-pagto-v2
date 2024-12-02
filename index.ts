@@ -81,41 +81,39 @@ function gerenciarFolhaPagamento() {
                 break;
 
             case "2":
-                let idFuncionario = Number(prompt("Digite o id do funcionário: "));
+                let idFuncionario = prompt("Digite o id do funcionário: ");
                 let numHoras = Number(prompt("Digite o número de horas trabalhadas: "));
 
-                registrarHoras(idFuncionario, numHoras);
+                let funcionarioExiste = false
+
+                listaFuncionarios.map(func => {
+                    if (func.id == idFuncionario) {
+                        func.registrarHoras(numHoras);
+                        funcionarioExiste = true
+                    }
+                })
+
+                if (!funcionarioExiste) {
+                    console.log(`O funcionário com id ${idFuncionario} não existe`)
+                }
                 break;
 
             case "3":
-                gerarRelatorioPagamento();
+                exibirLista()
                 break;
 
             case "4":
+                gerarRelatorioPagamento();
+                break;
+
+            case "5":
                 console.log("Saindo do sistema...");
                 break;
 
             default:
                 console.log("Opção inválida!");
         }
-    } while (opcao != "4");
+    } while (opcao != "5");
 }
 
 gerenciarFolhaPagamento();
-
-
-// // apagar depois
-// adicionarFuncionario(1, "Bruno", "Professor", 10)
-// registrarHoras(1, 8)
-// registrarHoras(1, 6)
-
-// adicionarFuncionario(2, "Douglas", "Professor", 100)
-// registrarHoras(2, 8)
-// registrarHoras(2, 10)
-// // console.log(listaFuncionarios)
-
-// // let total = calcularSalarioMensal(listaFuncionarios[0])
-// // console.log("Total do salário bruto: " + total)
-// // let inss = calcularInss(listaFuncionarios[0])
-// // console.log("Total do inss: " + inss)
-// gerarRelatorioPagamento()

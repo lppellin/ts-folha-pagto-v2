@@ -17,11 +17,8 @@ export default class Funcionario {
     }
 
 
-    registrarHoras(idFuncionario: string, numHoras: number) {
-        if (this.id == idFuncionario) {
-            this.horasTrabalhadas.push(numHoras)
-            return
-        }
+    registrarHoras(numHoras: number): void {
+        this.horasTrabalhadas.push(numHoras)
     }
 
     calcularSalarioMensal() {
