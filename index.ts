@@ -3,21 +3,14 @@ import PromptSync from "prompt-sync";
 
 const prompt = PromptSync();
 
-const listaFuncionarios = Funcionario[] = []
+const listaFuncionarios: Funcionario[] = []
 
-function adicionarFuncionario(id, nome, cargo, taxaHoraria) {
-    let funcionario = {
-        id: id,
-        nome: nome,
-        cargo: cargo,
-        taxaHoraria: taxaHoraria,
-        horasTrabalhadas: []
-    }
+function adicionarFuncionario(nome: string, cargo: string, taxaHoraria: number): void {
+    const novoFuncionario = new Funcionario(nome, cargo, taxaHoraria)
 
-    listaFuncionarios.push(funcionario)
-    console.log(`Funcionário criado com sucesso. ID: ${funcionario.id}`)
+    listaFuncionarios.push(novoFuncionario)
+    console.log(`Funcionário criado com sucesso. ID: ${novoFuncionario.id}`)
 }
-
 
 
 function calcularInss(funcionario) {
@@ -70,7 +63,7 @@ function gerenciarFolhaPagamento() {
         console.log("1 - Adicionar Funcionário");
         console.log("2 - Registrar Horas Trabalhadas");
         console.log("3 - Exibir Relatório de Pagamento");
-        console.log("4 - Sair");
+        console.log("4 - Sair \n");
     }
 
     let opcao;
@@ -80,12 +73,11 @@ function gerenciarFolhaPagamento() {
         opcao = prompt("Digite a opção desejada: ");
         switch (opcao) {
             case "1":
-                let id = Number(prompt("Digite o id do funcionário: "));
                 let nome = prompt("Digite o nome do funcionário: ");
                 let cargo = prompt("Digite o cargo do funcionário: ");
                 let taxaHoraria = Number(prompt("Digite a taxa horária do funcionário: "));
 
-                adicionarFuncionario(id, nome, cargo, taxaHoraria);
+                adicionarFuncionario(nome, cargo, taxaHoraria);
                 break;
 
             case "2":
