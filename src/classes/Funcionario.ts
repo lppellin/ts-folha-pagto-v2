@@ -22,8 +22,8 @@ export default class Funcionario {
     }
 
     calcularSalarioMensal() {
-        const totalHoras = this.horasTrabalhadas.reduce((soma, horas) => soma + horas, 0);
-        return totalHoras * this.taxaHoraria;
+        const totalHoras = this.horasTrabalhadas.reduce((soma, horas) => soma + horas, 0);    
+        return totalHoras * this.taxaHoraria;  
     }
 
 
