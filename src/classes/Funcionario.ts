@@ -1,6 +1,6 @@
 import { randomUUID } from "crypto"
 
-export default class Funcionario {
+export default class Funcionario { 
     id: string
     nome: string
     cargo: string
