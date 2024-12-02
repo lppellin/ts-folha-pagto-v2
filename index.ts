@@ -15,8 +15,9 @@ function adicionarFuncionario(id, nome, cargo, taxaHoraria) {
     }
 
     listaFuncionarios.push(funcionario)
+    console.log(`Funcionário criado com sucesso. ID: ${funcionario.id}`)
 }
- 
+
 
 
 function calcularInss(funcionario) {

@@ -1,6 +1,6 @@
 import { randomUUID } from "crypto"
 
-export default class Funcionario { 
+export default class Funcionario {
     id: string
     nome: string
     cargo: string
@@ -25,11 +25,8 @@ export default class Funcionario {
     }
 
     calcularSalarioMensal() {
-        let totalHoras = 0
-        this.horasTrabalhadas.map(hora => {
-            totalHoras += hora
-        })
-        return totalHoras * this.taxaHoraria
+        const totalHoras = this.horasTrabalhadas.reduce((soma, horas) => soma + horas, 0);
+        return totalHoras * this.taxaHoraria;
     }
 
 
