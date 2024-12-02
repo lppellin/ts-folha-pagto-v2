@@ -12,28 +12,6 @@ function adicionarFuncionario(nome: string, cargo: string, taxaHoraria: number):
     console.log(`Funcionário criado com sucesso. ID: ${novoFuncionario.id}`)
 }
 
-
-function calcularInss(funcionario) {
-    let salarioBruto = calcularSalarioMensal(funcionario)
-    let inss = 0
-
-    if (salarioBruto > 4000.04) {
-        inss = salarioBruto * 14 / 100
-    } else if (salarioBruto > 2666.69) {
-        inss = salarioBruto * 12 / 100
-    } else if (salarioBruto > 1412.01) {
-        inss = salarioBruto * 9 / 100
-    } else {
-        inss = salarioBruto * 7.5 / 100
-    }
-
-    if (inss > 908.85) {
-        inss = 908.85
-    }
-
-    return inss
-}
-
 function gerarRelatorioPagamento() {
     console.log("-------- RELATÓRIO DE PAGAMENTOS ---------- \n");
 

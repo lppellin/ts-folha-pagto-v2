@@ -1,6 +1,7 @@
+import exp from "constants"
 import { randomUUID } from "crypto"
 
-export default class Funcionario {
+class Funcionario {
     id: string
     nome: string
     cargo: string
@@ -22,10 +23,30 @@ export default class Funcionario {
     }
 
     calcularSalarioMensal() {
-        const totalHoras = this.horasTrabalhadas.reduce((soma, horas) => soma + horas, 0);    
-        return totalHoras * this.taxaHoraria;  
+        const totalHoras = this.horasTrabalhadas.reduce((soma, horas) => soma + horas, 0);
+        return totalHoras * this.taxaHoraria;
     }
 
+    calcularInss() {
+        let salarioBruto = this.calcularSalarioMensal()
+        let inss = 0
 
+        if (salarioBruto > 4000.04) {
+            inss = salarioBruto * 14 / 100
+        } else if (salarioBruto > 2666.69) {
+            inss = salarioBruto * 12 / 100
+        } else if (salarioBruto > 1412.01) {
+            inss = salarioBruto * 9 / 100
+        } else {
+            inss = salarioBruto * 7.5 / 100
+        }
+
+        if (inss > 908.85) {
+            inss = 908.85
+        }
+
+        return inss
+    }
 
 }
+export default Funcionario
